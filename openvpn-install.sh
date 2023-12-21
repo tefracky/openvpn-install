@@ -252,7 +252,7 @@ LimitNPROC=infinity" > /etc/systemd/system/openvpn-server@server.service.d/disab
 	./easyrsa --batch build-ca nopass
 	./easyrsa --batch --days=3650 build-server-full server nopass
  	echo ""
-	read -e -p "Require password for client certificate [y/N], default is [y]: " -i "y" PASSW
+	read -e -p "Require password for client certificate [y/N]: " -i "y" PASSW
 	if [[ "$PASSW" != [yY] ]]; then
 	    ./easyrsa --batch --days=3650 build-client-full "$client" nopass
 	else
@@ -473,7 +473,7 @@ else
 			done
 			cd /etc/openvpn/server/easy-rsa/
 			echo ""
-			read -e -p "Require password for client certificate [y/N], default is [y]: " -i "y" PASSW
+			read -e -p "Require password for client certificate [y/N]: " -i "y" PASSW
 		        if [[ "$PASSW" != [yY] ]]; then
 		            ./easyrsa --batch --days=3650 build-client-full "$client" nopass
 		        else
